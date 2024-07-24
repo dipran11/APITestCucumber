@@ -1,28 +1,46 @@
-package stepDef.ApiStep;
+package stepDef;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import pages.ApiPage;
 
 public class ApiStep {
+
+    ApiPage apiPage;
+
+    public ApiStep() {
+        this.apiPage = new ApiPage();
+    }
+
     @Given("prepare url for {string}")
-    public void prepareUrlFor(String arg0) {
+    public void prepareUrlFor(String url) {
+        apiPage.prepareUrlFor(url);
     }
 
     @And("hit api get list user")
     public void hitApiGetListUser() {
+        apiPage.hitApiGetListUser();
 
     }
 
     @Then("validation status code is equals {int}")
-    public void validationStatusCodeIsEquals(int arg0) {
+    public void validationStatusCodeIsEquals(int status_code) {
+        apiPage.validationStatusCodeIsEquals(status_code);
     }
 
-    @Then("validation respone body get list users")
-    public void validationResponeBodyGetListUsers() {
+    @Then("validation response body get list users")
+    public void validationResponseBodyGetListUsers() {
+        apiPage.validationResponseBodyGetListUsers();
     }
 
     @Then("Validation response json with JSONSchema {string}")
-    public void validationResponseJsonWithJSONSchema(String arg0) {
+    public void validationResponseJsonWithJSONSchema(String filename) {
+
+    }
+
+    @And("hit api post create new user")
+    public void hitApiPostCreateNewUser() {
+        apiPage.hitApiPostCreateUser();
     }
 }
