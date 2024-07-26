@@ -13,7 +13,7 @@ public class Models {
         request = RestAssured.given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
-                .header("Authorization", "Bearer 3de495d658779815098d244a0f3c62d4f58877cbc2693758b23f77838270b29c");
+                .header("Authorization", "Bearer 38cebe5affdc6038017ae850b112f50d15613c3f40d9d2a5d7bfd75f6218fcc2");
     }
 
     public static Response getListUsers(String endpoint) {
@@ -22,6 +22,7 @@ public class Models {
     }
 
     public static Response postCreateUser(String endpoint) {
+        setupHeaders();
         String name = "Brock love";
         String gender = "male";
         String email = "allasani.peddana@15ce.com";
@@ -31,9 +32,7 @@ public class Models {
         payload.put("gender", gender);
         payload.put("email", email);
         payload.put("status", status);
-
-        setupHeaders();
-        return request.body(payload.toString()).when().post();
+        return request.body(payload.toString()).when().post(endpoint);
     }
 }
 

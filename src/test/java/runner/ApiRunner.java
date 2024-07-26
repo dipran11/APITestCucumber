@@ -9,8 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         glue = {"stepDef"},
-        features = {"src/test/java/features"},
-        tags ="@api",
+        features = {"src/test/java/features/api.feature"},
         monochrome = true
 )
 public class ApiRunner {
